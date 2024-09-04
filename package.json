@@ -1,0 +1,35 @@
+{
+  "name": "@rohmer/node-red-switchbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrohmer/node-red-switchbot.git"
+  },
+  "keywords": [
+    "node-red",
+    "switchbot"
+  ],
+  "author": "Matthias Rohmer <m@rohmer.rocks>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrohmer/node-red-switchbot/issues"
+  },
+  "homepage": "https://github.com/mrohmer/node-red-switchbot#readme",
+  "volta": {
+    "node": "20.17.0",
+    "npm": "10.8.3"
+  },
+  "node-red": {
+    "version": ">=2.1.0",
+    "nodes": {
+      "SwitchBot": "node-red/switchbot-credentials.js",
+      "SwitchBot | Status": "node-red/switchbot-status.js",
+      "SwitchBot | Command": "node-red/switchbot-command.js"
+    }
+  }
+}

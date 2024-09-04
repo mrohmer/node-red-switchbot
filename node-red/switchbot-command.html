@@ -1,0 +1,32 @@
+<script type="text/javascript">
+  RED.nodes.registerType('SwitchBot | Command', {
+    category: 'SwitchBot',
+    color: '#e1383a',
+    defaults: {
+      name: {value: ""},
+      deviceId: {value: "", required: true},
+      globalConfig: {value: "", type: "SwitchBot", required: true},
+    },
+    inputs: 1,
+    inputLabels: ['Command'],
+    icon: "font-awesome/fa-s",
+    label: function () {
+      return this.name || "Send Command";
+    }
+  });
+</script>
+
+<script type="text/html" data-template-name="SwitchBot | Command">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-globalConfig"><i class="fa fa-tag"></i> SwitchBot</label>
+        <input type="text" id="node-input-globalConfig" placeholder="SwitchBot">
+    </div>
+    <div class="form-row">
+        <label for="node-input-deviceId"><i class="fa fa-tag"></i> Device ID</label>
+        <input type="text" id="node-input-deviceId" placeholder="Device ID">
+    </div>
+</script>
