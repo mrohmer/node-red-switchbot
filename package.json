@@ -24,6 +24,9 @@
     "node": "20.17.0",
     "npm": "10.8.3"
   },
+  "engines": {
+    "node": ">=17.0.0"
+  },
   "node-red": {
     "version": ">=2.1.0",
     "nodes": {
