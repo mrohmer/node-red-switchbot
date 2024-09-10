@@ -15,7 +15,7 @@
     "switchbot"
   ],
   "author": "Matthias Rohmer <m@rohmer.rocks>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mrohmer/node-red-switchbot/issues"
   },

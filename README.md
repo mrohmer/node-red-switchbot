@@ -22,3 +22,5 @@ You can install this package from the Node-RED palette manager by searching for 
 - **SwitchBot | Status**: Get the status of a SwitchBot device.
 - **SwitchBot | Command**: Send a command to a SwitchBot device.
 
+## License
+This project is licensed under the MIT License.
