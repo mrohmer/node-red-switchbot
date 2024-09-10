@@ -12,6 +12,40 @@
     icon: "font-awesome/fa-s",
     label: function () {
       return this.name || "Send Command";
+    },
+    oneditprepare: function () {
+      var $findBtn = $('#auto-find');
+      $findBtn.on('click', function () {
+        const apiId = $('#node-input-globalConfig').val();
+
+        if (!apiId.length || apiId === '_ADD_') {
+          alert('Fill SwitchBot');
+          return false;
+        }
+
+        const deviceName = prompt('Device Name', '');
+        if (!deviceName?.trim().length) {
+          alert('Fill Device Name');
+          return false;
+        }
+
+        $('#auto-find i').addClass('fa fa-spin fa-spinner');
+
+        $.getJSON('switchbot-api/find-device-id', {
+          apiId,
+          deviceName,
+        }).done(function (data, textStatus, jqXHR) {
+          $('#auto-find i').removeClass('fa fa-spin fa-spinner');
+
+          if (data?.deviceId) {
+            $('#node-input-deviceId').val(data.deviceId);
+          }
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+          $('#auto-find i').removeClass('fa fa-spin fa-spinner');
+          alert('Error: ' + errorThrown);
+        });
+
+      });
     }
   });
 </script>
@@ -28,5 +62,11 @@
     <div class="form-row">
         <label for="node-input-deviceId"><i class="fa fa-tag"></i> Device ID</label>
         <input type="text" id="node-input-deviceId" placeholder="Device ID">
+    </div>
+    <div class="form-row">
+        <label for="auto-find" class="l-width"><i class="fa fa-refresh"></i> Find ID</label>
+        <button type="button" style="width: 70%" class="btn btn-light" id="auto-find" name="auto-find"><i class=""></i>
+            Find Device ID by Name
+        </button>
     </div>
 </script>
