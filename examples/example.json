@@ -1,0 +1,205 @@
+[
+  {
+    "id": "c980779619b2baa3",
+    "type": "tab",
+    "label": "Swtichbot Example",
+    "disabled": false,
+    "info": "",
+    "env": []
+  },
+  {
+    "id": "9bcaaa4d2f210d91",
+    "type": "group",
+    "z": "c980779619b2baa3",
+    "name": "Read Status",
+    "style": {
+      "fill": "#ffffff",
+      "label": true
+    },
+    "nodes": [
+      "eb10eee4127be76f",
+      "a91cc78490fb552f",
+      "89218b798a1170a0"
+    ],
+    "x": 74,
+    "y": 179,
+    "w": 552,
+    "h": 82
+  },
+  {
+    "id": "824e56793f9f8426",
+    "type": "group",
+    "z": "c980779619b2baa3",
+    "name": "Send Command",
+    "style": {
+      "fill": "#ffffff",
+      "label": true
+    },
+    "nodes": [
+      "e4396c34687876f3",
+      "ff2d866b57dbbab8",
+      "ed5463388e42a243",
+      "0a4a08efe758e0c1"
+    ],
+    "x": 154,
+    "y": 299,
+    "w": 372,
+    "h": 162
+  },
+  {
+    "id": "eb10eee4127be76f",
+    "type": "SwitchBot | Status",
+    "z": "c980779619b2baa3",
+    "g": "9bcaaa4d2f210d91",
+    "name": "",
+    "deviceId": "1234",
+    "globalConfig": "b9b1c7b672681459",
+    "x": 370,
+    "y": 220,
+    "wires": [
+      [
+        "89218b798a1170a0"
+      ]
+    ]
+  },
+  {
+    "id": "ff2d866b57dbbab8",
+    "type": "SwitchBot | Command",
+    "z": "c980779619b2baa3",
+    "g": "824e56793f9f8426",
+    "name": "",
+    "deviceId": "1234",
+    "globalConfig": "b9b1c7b672681459",
+    "x": 420,
+    "y": 380,
+    "wires": []
+  },
+  {
+    "id": "a91cc78490fb552f",
+    "type": "inject",
+    "z": "c980779619b2baa3",
+    "g": "9bcaaa4d2f210d91",
+    "name": "Every min",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "60",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 190,
+    "y": 220,
+    "wires": [
+      [
+        "eb10eee4127be76f"
+      ]
+    ]
+  },
+  {
+    "id": "89218b798a1170a0",
+    "type": "debug",
+    "z": "c980779619b2baa3",
+    "g": "9bcaaa4d2f210d91",
+    "name": "Status",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 530,
+    "y": 220,
+    "wires": []
+  },
+  {
+    "id": "ed5463388e42a243",
+    "type": "inject",
+    "z": "c980779619b2baa3",
+    "g": "824e56793f9f8426",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "turnOn",
+    "payloadType": "str",
+    "x": 250,
+    "y": 340,
+    "wires": [
+      [
+        "ff2d866b57dbbab8"
+      ]
+    ]
+  },
+  {
+    "id": "0a4a08efe758e0c1",
+    "type": "inject",
+    "z": "c980779619b2baa3",
+    "g": "824e56793f9f8426",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "turnOff",
+    "payloadType": "str",
+    "x": 250,
+    "y": 380,
+    "wires": [
+      [
+        "ff2d866b57dbbab8"
+      ]
+    ]
+  },
+  {
+    "id": "e4396c34687876f3",
+    "type": "inject",
+    "z": "c980779619b2baa3",
+    "g": "824e56793f9f8426",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "press",
+    "payloadType": "str",
+    "x": 250,
+    "y": 420,
+    "wires": [
+      [
+        "ff2d866b57dbbab8"
+      ]
+    ]
+  },
+  {
+    "id": "b9b1c7b672681459",
+    "type": "SwitchBot",
+    "name": "Demo",
+    "token": "__TOKEN__"
+  }
+]
